@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GP Tech - Soluções Tecnológicas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      padding: 15px 25px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 26px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .team-card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .diferenciais {
+      background: #0f172a;
+      color: white;
+      border-radius: 10px;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .diferenciais ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .diferenciais li {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111;
+      color: white;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 24px;
+      }
+
+      header p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Soluções Tecnológicas no Seu Condomínio</h1>
+  <p>Atendimento realizado por Guilherme & Pablo – suporte técnico, Wi-Fi, segurança e instalações.</p>
+  <a class="btn-whatsapp" href="https://wa.me/5511961996754" target="_blank">
+    Falar no WhatsApp
+  </a>
+</header>
+
+<section>
+  <h2>Nossos Serviços</h2>
+  <div class="services">
+
+    <div class="card">
+      <h3>💻 Informática</h3>
+      <p>Formatação, backup, upgrade SSD, limpeza interna, montagem de PC, remoção de vírus e suporte geral.</p>
+    </div>
+
+    <div class="card">
+      <h3>📶 Wi-Fi & Internet</h3>
+      <p>Configuração de roteador, repetidor, rede mesh, melhoria de sinal e segurança da rede.</p>
+    </div>
+
+    <div class="card">
+      <h3>🎥 Segurança</h3>
+      <p>Instalação de câmeras Wi-Fi, campainha inteligente, fechadura digital e sensores.</p>
+    </div>
+
+    <div class="card">
+      <h3>📱 Ajuda Digital</h3>
+      <p>Configuração de celular, backup em nuvem, organização de fotos, Smart TV e suporte personalizado.</p>
+    </div>
+
+    <div class="card">
+      <h3>🔧 Instalações</h3>
+      <p>Instalação de TV na parede, suporte de monitor, organização de cabos e pequenas instalações residenciais.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Quem Somos</h2>
+  <div class="team">
+    <div class="team-card">
+      <h3>👨‍💻 Guilherme</h3>
+      <p>Técnico em Informática, especializado em suporte técnico, organização digital e soluções residenciais.</p>
+    </div>
+
+    <div class="team-card">
+      <h3>👨‍🔧 Pablo</h3>
+      <p>Especialista em instalações, redes, segurança e suporte técnico residencial.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="diferenciais">
+    <h2>Por que escolher a gente?</h2>
+    <ul>
+      <li>✔ Dois técnicos à disposição</li>
+      <li>✔ Atendimento rápido no condomínio</li>
+      <li>✔ Serviço com garantia</li>
+      <li>✔ Profissionalismo e confiança</li>
+    </ul>
+    <br>
+    <a class="btn-whatsapp" href="https://wa.me/5511923651973" target="_blank">
+      Solicitar Atendimento
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2026 GP Tech - Guilherme & Pablo Soluções Tecnológicas
+</footer>
+
+</body>
+</html>
