@@ -1,276 +1,296 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="./logomarca.jpg">
-  <title>GP Tech - Soluções Tecnológicas</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GP Tech | Soluções Tecnológicas Premium</title>
+<link rel="icon" href="./logomarca.jpg">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    body {
-      background-color: #f9f9f9;
-      color: #333;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
 
-    header {
-      background: #0f172a;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
+body{
+  background:#0b1120;
+  color:#e5e7eb;
+}
 
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
+header{
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  padding:100px 20px;
+  text-align:center;
+}
 
-    header p {
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
+header h1{
+  font-size:38px;
+  margin-bottom:20px;
+}
 
-    .btn-whatsapp {
-      background: #25D366;
-      color: white;
-      padding: 15px 25px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      display: inline-block;
-      transition: 0.3s;
-    }
+header p{
+  font-size:18px;
+  opacity:0.9;
+  margin-bottom:30px;
+}
 
-    .btn-whatsapp:hover {
-      background: #1ebe5d;
-    }
+.btn-primary{
+  background:#22c55e;
+  color:white;
+  padding:16px 32px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+  display:inline-block;
+}
 
-    section {
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
+.btn-primary:hover{
+  transform:scale(1.07);
+  background:#16a34a;
+}
 
-    h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 26px;
-    }
+.badge{
+  margin-top:20px;
+  font-size:14px;
+  opacity:0.8;
+}
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+section{
+  padding:80px 20px;
+  max-width:1200px;
+  margin:auto;
+}
 
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      transition: 0.3s;
-      cursor: pointer;
-    }
+h2{
+  text-align:center;
+  font-size:30px;
+  margin-bottom:50px;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
 
-    .card h3 {
-      margin-bottom: 10px;
-      color: #0f172a;
-    }
+.card{
+  background:#111827;
+  padding:30px;
+  border-radius:18px;
+  transition:0.4s;
+  cursor:pointer;
+  border:1px solid rgba(255,255,255,0.05);
+  position:relative;
+  overflow:hidden;
+}
 
-    .card p {
-      font-size: 14px;
-      line-height: 1.6;
-    }
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
 
-    .precos {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, margin-top 0.3s ease;
-    }
+.card h3{
+  font-size:20px;
+  margin-bottom:10px;
+}
 
-    .card.active .precos {
-      max-height: 300px;
-      margin-top: 15px;
-    }
+.card p{
+  font-size:14px;
+  opacity:0.8;
+}
 
-    .precos ul {
-      list-style: none;
-      padding: 0;
-      font-size: 14px;
-    }
+.preco-base{
+  margin-top:12px;
+  font-weight:700;
+  color:#22c55e;
+  font-size:18px;
+}
 
-    .precos li {
-      padding: 6px 0;
-      border-bottom: 1px solid #eee;
-    }
+.precos{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.5s ease;
+}
 
-    .team {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      text-align: center;
-    }
+.card.active .precos{
+  max-height:500px;
+  margin-top:15px;
+}
 
-    .team-card {
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    }
+.precos ul{
+  list-style:none;
+  font-size:14px;
+  margin-bottom:15px;
+}
 
-    .diferenciais {
-      background: #0f172a;
-      color: white;
-      border-radius: 10px;
-      padding: 40px 20px;
-      text-align: center;
-    }
+.precos li{
+  padding:6px 0;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
 
-    .diferenciais ul {
-      list-style: none;
-      margin-top: 20px;
-    }
+.btn-servico{
+  display:inline-block;
+  background:#22c55e;
+  padding:10px 18px;
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
 
-    .diferenciais li {
-      margin: 10px 0;
-      font-size: 16px;
-    }
+.btn-servico:hover{
+  background:#16a34a;
+  transform:scale(1.05);
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #111;
-      color: white;
-      font-size: 14px;
-    }
+.prova-social{
+  background:#111827;
+  padding:60px 20px;
+  border-radius:20px;
+  text-align:center;
+}
 
-    @media (max-width: 600px) {
-      header h1 { font-size: 24px; }
-      header p { font-size: 16px; }
-    }
-  </style>
+.prova-social h3{
+  margin-bottom:20px;
+}
+
+.depoimentos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.depo{
+  background:#1f2937;
+  padding:20px;
+  border-radius:12px;
+  font-size:14px;
+}
+
+.cta-final{
+  text-align:center;
+  padding:80px 20px;
+}
+
+footer{
+  background:#020617;
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  opacity:0.7;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>Soluções Tecnológicas no Seu Condomínio</h1>
-  <p>Atendimento realizado por Guilherme & Pablo – suporte técnico, Wi-Fi, segurança e instalações.</p>
-  <a class="btn-whatsapp" href="https://wa.me/5511923651973" target="_blank">
-    Falar no WhatsApp
-  </a>
+<h1>Tecnologia Premium no Seu Condomínio</h1>
+<p>Instalações profissionais, segurança inteligente e suporte técnico especializado.</p>
+
+<a class="btn-primary" target="_blank"
+href="https://wa.me/5511923651973?text=Olá,%20gostaria%20de%20um%20orçamento%20personalizado%20com%20a%20GP%20Tech.">
+Solicitar Orçamento Agora
+</a>
+
+<div class="badge">
+✔ Atendimento rápido | ✔ Garantia | ✔ Profissionais especializados
+</div>
 </header>
 
 <section>
-  <h2>Nossos Serviços</h2>
+<h2>Nossos Serviços Premium</h2>
 
-  <div class="services">
+<div class="services">
 
-    <div class="card" onclick="toggleCard(this)">
-      <h3>💻 Informática</h3>
-      <p>Formatação, upgrade, montagem e suporte técnico.</p>
+<div class="card" onclick="toggleCard(this)">
+<h3>💻 Informática Profissional</h3>
+<p>Manutenção avançada e upgrades de alta performance.</p>
+<div class="preco-base">A partir de R$ 120,00</div>
+<div class="precos">
+<ul>
+<li>Formatação Premium: R$ 180,00</li>
+<li>Upgrade SSD: R$ 150,00</li>
+<li>Montagem PC Gamer: R$ 350,00</li>
+<li>Limpeza técnica completa: R$ 120,00</li>
+</ul>
+<a class="btn-servico" target="_blank"
+href="https://wa.me/5511923651973?text=Olá,%20tenho%20interesse%20no%20serviço%20de%20Informática.">
+Quero esse serviço
+</a>
+</div>
+</div>
 
-      <div class="precos">
-        <ul>
-          <li>Formatação: R$ 180,00</li>
-          <li>Upgrade SSD: R$ 150,00</li>
-          <li>Montagem de PC: R$ 250,00</li>
-          <li>Limpeza interna: R$ 120,00</li>
-        </ul>
-      </div>
-    </div>
+<div class="card" onclick="toggleCard(this)">
+<h3>🎥 Segurança Eletrônica</h3>
+<p>Proteção inteligente para sua residência.</p>
+<div class="preco-base">A partir de R$ 350,00</div>
+<div class="precos">
+<ul>
+<li>Instalação de câmera: R$ 350,00</li>
+<li>Kit 4 câmeras completo: R$ 1.800,00</li>
+<li>Fechadura digital: R$ 480,00</li>
+</ul>
+<a class="btn-servico" target="_blank"
+href="https://wa.me/5511923651973?text=Olá,%20gostaria%20de%20instalar%20sistema%20de%20segurança.">
+Quero esse serviço
+</a>
+</div>
+</div>
 
-    <div class="card" onclick="toggleCard(this)">
-      <h3>📶 Wi-Fi & Internet</h3>
-      <p>Configuração e melhoria de rede.</p>
+<div class="card" onclick="toggleCard(this)">
+<h3>📶 Wi-Fi & Redes Avançadas</h3>
+<p>Internet rápida e estável em todos os ambientes.</p>
+<div class="preco-base">A partir de R$ 130,00</div>
+<div class="precos">
+<ul>
+<li>Configuração de roteador: R$ 130,00</li>
+<li>Rede Mesh: R$ 450,00</li>
+<li>Organização de rack: R$ 180,00</li>
+</ul>
+<a class="btn-servico" target="_blank"
+href="https://wa.me/5511923651973?text=Olá,%20preciso%20melhorar%20meu%20Wi-Fi.">
+Quero esse serviço
+</a>
+</div>
+</div>
 
-      <div class="precos">
-        <ul>
-          <li>Configuração de roteador: R$ 130,00</li>
-          <li>Instalação de repetidor: R$ 150,00</li>
-          <li>Rede Mesh completa: R$ 450,00</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card" onclick="toggleCard(this)">
-      <h3>🎥 Segurança</h3>
-      <p>Câmeras e dispositivos inteligentes.</p>
-
-      <div class="precos">
-        <ul>
-          <li>Instalação de câmera: R$ 350,00</li>
-          <li>Fechadura digital: R$ 480,00</li>
-          <li>Campainha inteligente: R$ 390,00</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card" onclick="toggleCard(this)">
-      <h3>🔧 Instalações</h3>
-      <p>Instalações residenciais e organização.</p>
-
-      <div class="precos">
-        <ul>
-          <li>Instalação de TV: R$ 200,00</li>
-          <li>Suporte de monitor: R$ 130,00</li>
-          <li>Organização de cabos: R$ 100,00</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
+</div>
 </section>
 
-<section>
-  <h2>Quem Somos</h2>
-  <div class="team">
-    <div class="team-card">
-      <h3>👨‍💻 Guilherme</h3>
-      <p>Técnico em Informática e soluções digitais.</p>
-    </div>
-
-    <div class="team-card">
-      <h3>👨‍🔧 Pablo</h3>
-      <p>Especialista em redes, segurança e instalações.</p>
-    </div>
-  </div>
+<section class="prova-social">
+<h3>⭐ Clientes Satisfeitos</h3>
+<div class="depoimentos">
+<div class="depo">“Serviço rápido e muito profissional. Recomendo!”</div>
+<div class="depo">“Instalaram minhas câmeras e ficou perfeito.”</div>
+<div class="depo">“Meu Wi-Fi melhorou 100% depois do serviço.”</div>
+</div>
 </section>
 
-<section>
-  <div class="diferenciais">
-    <h2>Por que escolher a gente?</h2>
-    <ul>
-      <li>✔ Dois técnicos à disposição</li>
-      <li>✔ Atendimento rápido no condomínio</li>
-      <li>✔ Serviço com garantia</li>
-      <li>✔ Profissionalismo e confiança</li>
-    </ul>
-    <br>
-    <a class="btn-whatsapp" href="https://wa.me/5511923651973" target="_blank">
-      Solicitar Orçamento
-    </a>
-  </div>
+<section class="cta-final">
+<h2>Pronto para Resolver Seu Problema?</h2>
+<p>Agenda limitada para esta semana.</p>
+<br>
+<a class="btn-primary" target="_blank"
+href="https://wa.me/5511923651973?text=Olá,%20quero%20garantir%20um%20horário%20para%20atendimento.">
+Garantir Meu Atendimento
+</a>
 </section>
 
 <footer>
-  © 2026 GP Tech - Guilherme & Pablo Soluções Tecnológicas
+© 2026 GP Tech - Tecnologia com Profissionalismo
 </footer>
 
 <script>
-  function toggleCard(card) {
-    card.classList.toggle("active");
-  }
+function toggleCard(card){
+card.classList.toggle("active");
+}
 </script>
 
 </body>
