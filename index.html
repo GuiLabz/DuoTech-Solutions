@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="./logomarca.jpg">
   <title>GP Tech - Soluções Tecnológicas</title>
+
   <style>
     * {
       margin: 0;
@@ -74,6 +75,7 @@
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.08);
       transition: 0.3s;
+      cursor: pointer;
     }
 
     .card:hover {
@@ -88,6 +90,28 @@
     .card p {
       font-size: 14px;
       line-height: 1.6;
+    }
+
+    .precos {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, margin-top 0.3s ease;
+    }
+
+    .card.active .precos {
+      max-height: 300px;
+      margin-top: 15px;
+    }
+
+    .precos ul {
+      list-style: none;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    .precos li {
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
     }
 
     .team {
@@ -131,16 +155,12 @@
     }
 
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 24px;
-      }
-
-      header p {
-        font-size: 16px;
-      }
+      header h1 { font-size: 24px; }
+      header p { font-size: 16px; }
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -153,31 +173,60 @@
 
 <section>
   <h2>Nossos Serviços</h2>
+
   <div class="services">
 
-    <div class="card">
+    <div class="card" onclick="toggleCard(this)">
       <h3>💻 Informática</h3>
-      <p>Formatação, backup, upgrade SSD, limpeza interna, montagem de PC, remoção de vírus e suporte geral.</p>
+      <p>Formatação, upgrade, montagem e suporte técnico.</p>
+
+      <div class="precos">
+        <ul>
+          <li>Formatação: R$ 180,00</li>
+          <li>Upgrade SSD: R$ 150,00</li>
+          <li>Montagem de PC: R$ 250,00</li>
+          <li>Limpeza interna: R$ 120,00</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="toggleCard(this)">
       <h3>📶 Wi-Fi & Internet</h3>
-      <p>Configuração de roteador, repetidor, rede mesh, melhoria de sinal e segurança da rede.</p>
+      <p>Configuração e melhoria de rede.</p>
+
+      <div class="precos">
+        <ul>
+          <li>Configuração de roteador: R$ 130,00</li>
+          <li>Instalação de repetidor: R$ 150,00</li>
+          <li>Rede Mesh completa: R$ 450,00</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="toggleCard(this)">
       <h3>🎥 Segurança</h3>
-      <p>Instalação de câmeras Wi-Fi, campainha inteligente, fechadura digital e sensores.</p>
+      <p>Câmeras e dispositivos inteligentes.</p>
+
+      <div class="precos">
+        <ul>
+          <li>Instalação de câmera: R$ 350,00</li>
+          <li>Fechadura digital: R$ 480,00</li>
+          <li>Campainha inteligente: R$ 390,00</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>📱 Ajuda Digital</h3>
-      <p>Configuração de celular, backup em nuvem, organização de fotos, Smart TV e suporte personalizado.</p>
-    </div>
-
-    <div class="card">
+    <div class="card" onclick="toggleCard(this)">
       <h3>🔧 Instalações</h3>
-      <p>Instalação de TV na parede, suporte de monitor, organização de cabos e pequenas instalações residenciais.</p>
+      <p>Instalações residenciais e organização.</p>
+
+      <div class="precos">
+        <ul>
+          <li>Instalação de TV: R$ 200,00</li>
+          <li>Suporte de monitor: R$ 130,00</li>
+          <li>Organização de cabos: R$ 100,00</li>
+        </ul>
+      </div>
     </div>
 
   </div>
@@ -188,12 +237,12 @@
   <div class="team">
     <div class="team-card">
       <h3>👨‍💻 Guilherme</h3>
-      <p>Técnico em Informática, especializado em suporte técnico, organização digital e soluções residenciais.</p>
+      <p>Técnico em Informática e soluções digitais.</p>
     </div>
 
     <div class="team-card">
       <h3>👨‍🔧 Pablo</h3>
-      <p>Especialista em instalações, redes, segurança e suporte técnico residencial.</p>
+      <p>Especialista em redes, segurança e instalações.</p>
     </div>
   </div>
 </section>
@@ -209,7 +258,7 @@
     </ul>
     <br>
     <a class="btn-whatsapp" href="https://wa.me/5511923651973" target="_blank">
-      Solicitar Atendimento
+      Solicitar Orçamento
     </a>
   </div>
 </section>
@@ -217,6 +266,12 @@
 <footer>
   © 2026 GP Tech - Guilherme & Pablo Soluções Tecnológicas
 </footer>
+
+<script>
+  function toggleCard(card) {
+    card.classList.toggle("active");
+  }
+</script>
 
 </body>
 </html>
