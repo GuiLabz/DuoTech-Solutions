@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GP Tech | Soluções Tecnológicas Premium</title>
+<title>GP Tech | Tecnologia & Segurança Inteligente</title>
 <link rel="icon" href="./logomarca.jpg">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -17,47 +16,64 @@
 }
 
 body{
-  background:#0b1120;
-  color:#e5e7eb;
+  background: radial-gradient(circle at top left,#0f172a,#020617);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* Glow Background */
+body::before{
+  content:"";
+  position:fixed;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#22c55e33,transparent 70%);
+  top:-200px;
+  right:-200px;
+  z-index:-1;
 }
 
 header{
-  background:linear-gradient(135deg,#0f172a,#1e293b);
-  padding:100px 20px;
   text-align:center;
+  padding:120px 20px 80px;
 }
 
 header h1{
-  font-size:38px;
+  font-size:44px;
+  font-weight:800;
   margin-bottom:20px;
+  background:linear-gradient(90deg,#22c55e,#3b82f6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 header p{
   font-size:18px;
-  opacity:0.9;
-  margin-bottom:30px;
+  opacity:0.85;
+  margin-bottom:35px;
 }
 
 .btn-primary{
-  background:#22c55e;
-  color:white;
-  padding:16px 32px;
+  background:linear-gradient(90deg,#22c55e,#16a34a);
+  padding:16px 40px;
   border-radius:50px;
+  color:white;
   text-decoration:none;
   font-weight:600;
   transition:0.3s;
-  display:inline-block;
+  box-shadow:0 10px 30px #22c55e55;
 }
 
 .btn-primary:hover{
   transform:scale(1.07);
-  background:#16a34a;
 }
 
-.badge{
-  margin-top:20px;
-  font-size:14px;
-  opacity:0.8;
+/* Glass Effect */
+.glass{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;
 }
 
 section{
@@ -68,8 +84,9 @@ section{
 
 h2{
   text-align:center;
-  font-size:30px;
-  margin-bottom:50px;
+  font-size:34px;
+  margin-bottom:60px;
+  font-weight:700;
 }
 
 .services{
@@ -79,36 +96,31 @@ h2{
 }
 
 .card{
-  background:#111827;
   padding:30px;
-  border-radius:18px;
   transition:0.4s;
   cursor:pointer;
-  border:1px solid rgba(255,255,255,0.05);
-  position:relative;
-  overflow:hidden;
 }
 
 .card:hover{
-  transform:translateY(-12px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  transform:translateY(-15px);
+  box-shadow:0 25px 50px rgba(0,0,0,0.5);
 }
 
 .card h3{
+  margin-bottom:15px;
   font-size:20px;
-  margin-bottom:10px;
 }
 
 .card p{
-  font-size:14px;
   opacity:0.8;
+  font-size:14px;
 }
 
 .preco-base{
-  margin-top:12px;
+  margin-top:15px;
   font-weight:700;
-  color:#22c55e;
   font-size:18px;
+  color:#22c55e;
 }
 
 .precos{
@@ -130,12 +142,12 @@ h2{
 
 .precos li{
   padding:6px 0;
-  border-bottom:1px solid rgba(255,255,255,0.05);
+  border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 .btn-servico{
   display:inline-block;
-  background:#22c55e;
+  background:#3b82f6;
   padding:10px 18px;
   border-radius:8px;
   color:white;
@@ -145,45 +157,61 @@ h2{
 }
 
 .btn-servico:hover{
-  background:#16a34a;
+  background:#2563eb;
+}
+
+/* PLANOS */
+.planos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.plano{
+  padding:40px 25px;
+  text-align:center;
+  position:relative;
+  transition:0.4s;
+}
+
+.plano:hover{
+  transform:translateY(-12px);
+}
+
+.plano-destaque{
+  border:2px solid #22c55e;
   transform:scale(1.05);
 }
 
-.prova-social{
-  background:#111827;
-  padding:60px 20px;
-  border-radius:20px;
-  text-align:center;
+.plano h3{
+  margin-bottom:15px;
+  font-size:22px;
 }
 
-.prova-social h3{
-  margin-bottom:20px;
+.plano .preco{
+  font-size:32px;
+  font-weight:800;
+  margin:15px 0;
+  color:#22c55e;
 }
 
-.depoimentos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.depo{
-  background:#1f2937;
-  padding:20px;
-  border-radius:12px;
+.plano ul{
+  list-style:none;
+  margin:20px 0;
   font-size:14px;
+  opacity:0.85;
 }
 
-.cta-final{
-  text-align:center;
-  padding:80px 20px;
+.plano ul li{
+  margin:8px 0;
 }
 
 footer{
-  background:#020617;
   text-align:center;
-  padding:30px;
-  font-size:14px;
+  padding:40px;
+  background:#020617;
   opacity:0.7;
+  font-size:14px;
 }
 </style>
 </head>
@@ -191,71 +219,66 @@ footer{
 <body>
 
 <header>
-<h1>Tecnologia Premium no Seu Condomínio</h1>
-<p>Instalações profissionais, segurança inteligente e suporte técnico especializado.</p>
+<h1>Infraestrutura Tecnológica Inteligente</h1>
+<p>Suporte técnico, segurança eletrônica e redes premium para condomínios modernos.</p>
 
 <a class="btn-primary" target="_blank"
 href="https://wa.me/5511923651973?text=Olá,%20gostaria%20de%20um%20orçamento%20personalizado%20com%20a%20GP%20Tech.">
-Solicitar Orçamento Agora
+Falar com Especialista
 </a>
-
-<div class="badge">
-✔ Atendimento rápido | ✔ Garantia | ✔ Profissionais especializados
-</div>
 </header>
 
 <section>
-<h2>Nossos Serviços Premium</h2>
+<h2>Serviços Especializados</h2>
 
 <div class="services">
 
-<div class="card" onclick="toggleCard(this)">
-<h3>💻 Informática Profissional</h3>
-<p>Manutenção avançada e upgrades de alta performance.</p>
-<div class="preco-base">A partir de R$ 120,00</div>
+<div class="card glass" onclick="toggleCard(this)">
+<h3>💻 Informática Corporativa</h3>
+<p>Performance, upgrades e manutenção especializada.</p>
+<div class="preco-base">A partir de R$ 120</div>
 <div class="precos">
 <ul>
-<li>Formatação Premium: R$ 180,00</li>
-<li>Upgrade SSD: R$ 150,00</li>
-<li>Montagem PC Gamer: R$ 350,00</li>
-<li>Limpeza técnica completa: R$ 120,00</li>
+<li>Formatação Premium</li>
+<li>Upgrade SSD</li>
+<li>Montagem avançada</li>
 </ul>
 <a class="btn-servico" target="_blank"
-href="https://wa.me/5511923651973?text=Olá,%20tenho%20interesse%20no%20serviço%20de%20Informática.">
+href="https://wa.me/5511923651973?text=Tenho%20interesse%20em%20Informática%20Corporativa.">
 Quero esse serviço
 </a>
 </div>
 </div>
 
-<div class="card" onclick="toggleCard(this)">
-<h3>🎥 Segurança Eletrônica</h3>
-<p>Proteção inteligente para sua residência.</p>
-<div class="preco-base">A partir de R$ 350,00</div>
+<div class="card glass" onclick="toggleCard(this)">
+<h3>🎥 Segurança Inteligente</h3>
+<p>CFTV e monitoramento remoto profissional.</p>
+<div class="preco-base">A partir de R$ 350</div>
 <div class="precos">
 <ul>
-<li>Instalação de câmera: R$ 350,00</li>
-<li>Kit 4 câmeras completo: R$ 1.800,00</li>
-<li>Fechadura digital: R$ 480,00</li>
+<li>Instalação de câmeras</li>
+<li>Kit completo CFTV</li>
+<li>Fechadura digital</li>
 </ul>
 <a class="btn-servico" target="_blank"
-href="https://wa.me/5511923651973?text=Olá,%20gostaria%20de%20instalar%20sistema%20de%20segurança.">
+href="https://wa.me/5511923651973?text=Tenho%20interesse%20em%20Segurança%20Inteligente.">
 Quero esse serviço
 </a>
 </div>
 </div>
 
-<div class="card" onclick="toggleCard(this)">
-<h3>📶 Wi-Fi & Redes Avançadas</h3>
-<p>Internet rápida e estável em todos os ambientes.</p>
-<div class="preco-base">A partir de R$ 130,00</div>
+<div class="card glass" onclick="toggleCard(this)">
+<h3>📶 Redes & Wi-Fi Premium</h3>
+<p>Internet estável em todos os ambientes.</p>
+<div class="preco-base">A partir de R$ 130</div>
 <div class="precos">
 <ul>
-<li>Configuração de roteador: R$ 130,00</li>
-<li>Rede Mesh: R$ 450,00</li>
-<li>Organização de rack: R$ 180,00</li>
+<li>Configuração avançada</li>
+<li>Rede Mesh</li>
+<li>Organização de rack</li>
 </ul>
 <a class="btn-servico" target="_blank"
-href="https://wa.me/5511923651973?text=Olá,%20preciso%20melhorar%20meu%20Wi-Fi.">
+href="https://wa.me/5511923651973?text=Tenho%20interesse%20em%20Redes%20Premium.">
 Quero esse serviço
 </a>
 </div>
@@ -264,27 +287,60 @@ Quero esse serviço
 </div>
 </section>
 
-<section class="prova-social">
-<h3>⭐ Clientes Satisfeitos</h3>
-<div class="depoimentos">
-<div class="depo">“Serviço rápido e muito profissional. Recomendo!”</div>
-<div class="depo">“Instalaram minhas câmeras e ficou perfeito.”</div>
-<div class="depo">“Meu Wi-Fi melhorou 100% depois do serviço.”</div>
-</div>
-</section>
+<section>
+<h2>Planos Mensais de Manutenção</h2>
 
-<section class="cta-final">
-<h2>Pronto para Resolver Seu Problema?</h2>
-<p>Agenda limitada para esta semana.</p>
-<br>
+<div class="planos">
+
+<div class="plano glass">
+<h3>Plano Essencial</h3>
+<div class="preco">R$ 149<span style="font-size:14px;">/mês</span></div>
+<ul>
+<li>1 visita técnica mensal</li>
+<li>Suporte remoto</li>
+<li>Desconto em serviços</li>
+</ul>
 <a class="btn-primary" target="_blank"
-href="https://wa.me/5511923651973?text=Olá,%20quero%20garantir%20um%20horário%20para%20atendimento.">
-Garantir Meu Atendimento
+href="https://wa.me/5511923651973?text=Tenho%20interesse%20no%20Plano%20Essencial.">
+Contratar Plano
 </a>
+</div>
+
+<div class="plano plano-destaque glass">
+<h3>Plano Profissional</h3>
+<div class="preco">R$ 249<span style="font-size:14px;">/mês</span></div>
+<ul>
+<li>2 visitas mensais</li>
+<li>Suporte prioritário</li>
+<li>Monitoramento preventivo</li>
+<li>Desconto especial em equipamentos</li>
+</ul>
+<a class="btn-primary" target="_blank"
+href="https://wa.me/5511923651973?text=Tenho%20interesse%20no%20Plano%20Profissional.">
+Contratar Plano
+</a>
+</div>
+
+<div class="plano glass">
+<h3>Plano Premium</h3>
+<div class="preco">R$ 399<span style="font-size:14px;">/mês</span></div>
+<ul>
+<li>Visitas ilimitadas*</li>
+<li>Suporte 24h</li>
+<li>Gestão completa de rede</li>
+<li>Prioridade máxima</li>
+</ul>
+<a class="btn-primary" target="_blank"
+href="https://wa.me/5511923651973?text=Tenho%20interesse%20no%20Plano%20Premium.">
+Contratar Plano
+</a>
+</div>
+
+</div>
 </section>
 
 <footer>
-© 2026 GP Tech - Tecnologia com Profissionalismo
+© 2026 GP Tech - Tecnologia & Segurança Inteligente
 </footer>
 
 <script>
