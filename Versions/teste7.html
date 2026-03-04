@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GP Tech | Tecnologia & Segurança Inteligente</title>
+<link rel="icon" href="./logomarca.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+body{
+  background: radial-gradient(circle at top left,#0f172a,#020617);
+  color:#fff;
+  overflow-x:hidden;
+  position:relative;
+}
+/* Fundo animado com partículas (rede neural/tech) */
+#particles {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-3;
+  pointer-events:none;
+}
+/* Glows dinâmicos */
+body::before{
+  content:"";
+  position:fixed;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle,#22c55e22,transparent 70%);
+  top:-250px;
+  right:-250px;
+  z-index:-2;
+  animation: glowPulse 15s ease infinite alternate;
+}
+body::after{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle,#3b82f633,transparent 70%);
+  bottom:-150px;
+  left:-200px;
+  z-index:-2;
+  animation: glowPulse 18s ease infinite alternate-reverse;
+}
+@keyframes glowPulse {
+  0% { opacity: 0.6; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+/* Navbar moderna */
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:100;
+  background:rgba(2,6,23,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  padding:16px 20px;
+}
+.nav-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+  font-size:22px;
+  color:#22c55e;
+  text-decoration:none;
+}
+.logo img{
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  object-fit:cover;
+}
+nav ul{
+  display:flex;
+  gap:35px;
+  list-style:none;
+}
+nav a{
+  color:#e2e8f0;
+  text-decoration:none;
+  font-weight:500;
+  transition:0.3s;
+  position:relative;
+}
+nav a:after{
+  content:'';
+  position:absolute;
+  width:0;
+  height:2px;
+  bottom:-4px;
+  left:0;
+  background:linear-gradient(90deg,#22c55e,#3b82f6);
+  transition:0.3s;
+}
+nav a:hover{
+  color:#22c55e;
+}
+nav a:hover:after{
+  width:100%;
+}
+/* Header com shine effect */
+header{
+  text-align:center;
+  padding:180px 20px 100px;
+  position:relative;
+}
+header h1{
+  font-size:48px;
+  font-weight:800;
+  margin-bottom:20px;
+  background:linear-gradient(90deg,#22c55e,#3b82f6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  position:relative;
+  display:inline-block;
+}
+header h1::after{
+  content:'';
+  position:absolute;
+  top:-30%;
+  left:-150%;
+  width:40%;
+  height:180%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.75), transparent);
+  transform:skewX(-25deg);
+  animation: shine 4s linear infinite;
+}
+@keyframes shine {
+  0% { left: -150%; }
+  100% { left: 250%; }
+}
+header p{
+  font-size:19px;
+  opacity:0.9;
+  margin-bottom:40px;
+  max-width:680px;
+  margin-left:auto;
+  margin-right:auto;
+}
+/* Botão principal com pulse neon */
+.btn-primary{
+  background:linear-gradient(90deg,#22c55e,#16a34a);
+  padding:16px 42px;
+  border-radius:50px;
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+  box-shadow:0 10px 30px #22c55e55;
+  display:inline-block;
+  animation: pulseGlow 3s ease infinite;
+}
+.btn-primary:hover{
+  transform:scale(1.08);
+  box-shadow:0 15px 40px #22c55eaa;
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 10px 30px #22c55e55; }
+  50% { box-shadow: 0 15px 50px #22c55e99; }
+}
+/* Glass Effect aprimorado */
+.glass{
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:24px;
+  transition:0.4s;
+}
+/* Animações de entrada (fade + slide) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.services .card,
+.planos .plano {
+  animation: fadeInUp 0.9s ease forwards;
+  opacity: 0;
+}
+/* Stagger das animações */
+.services .card:nth-child(1){ animation-delay: 0.15s; }
+.services .card:nth-child(2){ animation-delay: 0.35s; }
+.services .card:nth-child(3){ animation-delay: 0.55s; }
+.planos .plano:nth-child(1){ animation-delay: 0.25s; }
+.planos .plano:nth-child(2){ animation-delay: 0.45s; }
+.planos .plano:nth-child(3){ animation-delay: 0.65s; }
+section{
+  padding:100px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+h2{
+  text-align:center;
+  font-size:36px;
+  margin-bottom:70px;
+  font-weight:700;
+  position:relative;
+}
+h2::after{
+  content:'';
+  position:absolute;
+  width:80px;
+  height:3px;
+  background:linear-gradient(90deg,#22c55e,#3b82f6);
+  bottom:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:3px;
+}
+/* Cards com hover mais premium */
+.card{
+  padding:32px;
+  cursor:pointer;
+  transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
+}
+.card:hover{
+  transform:translateY(-20px) scale(1.03);
+  box-shadow:0 30px 70px rgba(34,197,94,0.25);
+  border-color:#22c55e;
+}
+.card h3{
+  margin-bottom:16px;
+  font-size:21px;
+}
+.card p{
+  opacity:0.85;
+  font-size:15px;
+  line-height:1.5;
+}
+/* Preços e toggle aprimorado */
+.preco-base{
+  margin-top:18px;
+  font-weight:700;
+  font-size:19px;
+  color:#22c55e;
+}
+.precos{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.6s cubic-bezier(0.34,1.56,0.64,1);
+}
+.card.active .precos{
+  max-height:420px;
+  margin-top:18px;
+}
+/* Planos */
+.planos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:32px;
+}
+.plano{
+  padding:42px 28px;
+  text-align:center;
+  transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
+}
+.plano:hover{
+  transform:translateY(-15px);
+}
+.plano-destaque{
+  border:3px solid #22c55e;
+  box-shadow:0 0 0 8px rgba(34,197,94,0.15);
+}
+.plano .preco{
+  font-size:36px;
+  font-weight:800;
+  margin:20px 0;
+  color:#22c55e;
+}
+.plano ul li{
+  margin:12px 0;
+  font-size:15px;
+}
+/* Botão flutuante WhatsApp (toque especial!) */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 68px;
+  height: 68px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+  box-shadow: 0 15px 35px rgba(34,197,94,0.4);
+  z-index: 999;
+  transition: all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55);
+  animation: pulseFloat 2.2s ease infinite;
+  text-decoration: none;
+}
+.whatsapp-float:hover {
+  transform: scale(1.15) rotate(12deg);
+  box-shadow: 0 20px 45px rgba(34,197,94,0.6);
+}
+@keyframes pulseFloat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+footer{
+  text-align:center;
+  padding:50px 20px;
+  background:#020617;
+  opacity:0.85;
+  font-size:14px;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+.btn-servico{
+  display:inline-block;
+  background:#3b82f6;
+  padding:10px 18px;
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+.btn-servico:hover{
+  background:#2563eb;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- Navbar -->
+<nav>
+  <div class="nav-container">
+    <a href="#" class="logo">
+      <img src="./logomarca.jpg" alt="GP Tech">
+      GP Tech
+    </a>
+    <ul>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="https://wa.me/5511923651973?text=Olá,%20vim%20do%20site!" target="_blank">Contato</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <h1>Infraestrutura Tecnológica Inteligente</h1>
+  <p>Suporte técnico, criação de sites profissionais, marketing digital e proteção avançada contra ameaças digitais.</p>
+
+  <a class="btn-primary" target="_blank"
+  href="https://wa.me/5511923651973?text=Olá,%20gostaria%20de%20um%20orçamento%20personalizado%20com%20a%20GP%20Tech.">
+  Falar com Especialista
+  </a>
+</header>
+
+<section id="servicos">
+  <h2>Serviços Especializados</h2>
+
+  <div class="services">
+
+    <div class="card glass" onclick="toggleCard(this)">
+      <h3>🛡️ Blindagem Digital & Antivírus</h3>
+      <p>Proteção completa contra vírus, malware, ransomware e remoção profissional de ameaças.</p>
+      <div class="preco-base">A partir de R$ 120</div>
+      <div class="precos">
+        <ul>
+          <li>Remoção de vírus e malware</li>
+          <li>Instalação e configuração de antivírus empresarial</li>
+          <li>Blindagem contra ransomware e phishing</li>
+          <li>Varredura profunda e recuperação de dados</li>
+        </ul>
+        <a class="btn-servico" target="_blank"
+        href="https://wa.me/5511923651973?text=Tenho%20interesse%20em%20Blindagem%20Digital%20e%20Antivírus.">
+        Quero esse serviço
+        </a>
+      </div>
+    </div>
+
+    <div class="card glass" onclick="toggleCard(this)">
+      <h3>🌐 Criação de Sites Profissionais</h3>
+      <p>Sites modernos, responsivos e otimizados para atrair clientes e aumentar vendas.</p>
+      <div class="preco-base">A partir de R$ 980</div>
+      <div class="precos">
+        <ul>
+          <li>Site institucional ou portfólio</li>
+          <li>Loja virtual (e-commerce básico)</li>
+          <li>Otimização SEO on-page básica</li>
+          <li>Design responsivo + integração WhatsApp</li>
+        </ul>
+        <a class="btn-servico" target="_blank"
+        href="https://wa.me/5511923651973?text=Tenho%20interesse%20em%20Criação%20de%20Sites%20Profissionais.">
+        Quero esse serviço
+        </a>
+      </div>
+    </div>
+
+    <div class="card glass" onclick="toggleCard(this)">
+      <h3>📈 Marketing Digital & Presença Online</h3>
+      <p>Estratégias para crescer sua visibilidade: redes sociais, anúncios e tráfego pago.</p>
+      <div class="preco-base">A partir de R$ 650</div>
+      <div class="precos">
+        <ul>
+          <li>Gestão de redes sociais (Instagram/Facebook)</li>
+          <li>Tráfego pago (Google Ads / Meta Ads)</li>
+          <li>Branding e identidade visual básica</li>
+          <li>Estratégia de conteúdo e captação de leads</li>
+        </ul>
+        <a class="btn-servico" target="_blank"
+        href="https://wa.me/5511923651973?text=Tenho%20interesse%20em%20Marketing%20Digital%20e%20Presença%20Online.">
+        Quero esse serviço
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="planos">
+  <h2>Planos Mensais de Manutenção</h2>
+
+  <div class="planos">
+
+    <div class="plano glass">
+      <h3>Plano Essencial</h3>
+      <div class="preco">R$ 149<span style="font-size:14px;">/mês</span></div>
+      <ul>
+        <li>1 visita/suporte mensal</li>
+        <li>Suporte remoto prioritário</li>
+        <li>Desconto em serviços digitais</li>
+      </ul>
+      <a class="btn-primary" target="_blank"
+      href="https://wa.me/5511923651973?text=Tenho%20interesse%20no%20Plano%20Essencial.">
+      Contratar Plano
+      </a>
+    </div>
+
+    <div class="plano plano-destaque glass">
+      <h3>Plano Profissional</h3>
+      <div class="preco">R$ 249<span style="font-size:14px;">/mês</span></div>
+      <ul>
+        <li>2 atendimentos mensais</li>
+        <li>Suporte prioritário 24h</li>
+        <li>Monitoramento preventivo de ameaças</li>
+        <li>Manutenção básica de site + desconto em ads</li>
+      </ul>
+      <a class="btn-primary" target="_blank"
+      href="https://wa.me/5511923651973?text=Tenho%20interesse%20no%20Plano%20Profissional.">
+      Contratar Plano
+      </a>
+    </div>
+
+    <div class="plano glass">
+      <h3>Plano Premium</h3>
+      <div class="preco">R$ 399<span style="font-size:14px;">/mês</span></div>
+      <ul>
+        <li>Atendimentos ilimitados*</li>
+        <li>Suporte 24h</li>
+        <li>Gestão completa de site e segurança digital</li>
+        <li>Monitoramento contínuo + relatórios</li>
+      </ul>
+      <a class="btn-primary" target="_blank"
+      href="https://wa.me/5511923651973?text=Tenho%20interesse%20no%20Plano%20Premium.">
+      Contratar Plano
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Botão flutuante WhatsApp -->
+<a href="https://wa.me/5511923651973?text=Olá!%20Vim%20do%20site%20e%20quero%20mais%20informações." target="_blank" class="whatsapp-float">
+  💬
+</a>
+
+<footer>
+  © 2026 GP Tech - Tecnologia & Criação Inteligente<br>
+  Desenvolvido por Guilherme & Pablo ✨
+</footer>
+
+<script>
+// Toggle cards
+function toggleCard(card){
+  card.classList.toggle("active");
+}
+
+// Partículas interativas (mantidas iguais)
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+
+let particlesArray = [];
+let mouse = { x: null, y: null };
+const numberOfParticles = 85;
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2.8 + 1.2;
+    this.speedX = Math.random() * 0.6 - 0.3;
+    this.speedY = Math.random() * 0.6 - 0.3;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (mouse.x !== null && mouse.y !== null) {
+      let dx = this.x - mouse.x;
+      let dy = this.y - mouse.y;
+      let distance = Math.hypot(dx, dy);
+      if (distance < 160 && distance > 0) {
+        let force = (160 - distance) / 160 * 3.5;
+        this.speedX += (dx / distance) * force;
+        this.speedY += (dy / distance) * force;
+      }
+    }
+    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    this.speedX *= 0.975;
+    this.speedY *= 0.975;
+  }
+  draw() {
+    ctx.fillStyle = '#22c55e';
+    ctx.shadowBlur = 12;
+    ctx.shadowColor = '#22c55e';
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+}
+
+function initParticles() {
+  particlesArray = [];
+  for (let i = 0; i < numberOfParticles; i++) {
+    particlesArray.push(new Particle());
+  }
+}
+
+function connectParticles() {
+  for (let a = 0; a < particlesArray.length; a++) {
+    for (let b = a + 1; b < particlesArray.length; b++) {
+      let dx = particlesArray[a].x - particlesArray[b].x;
+      let dy = particlesArray[a].y - particlesArray[b].y;
+      let distance = Math.hypot(dx, dy);
+      if (distance < 135) {
+        ctx.strokeStyle = `rgba(59, 130, 246, ${0.35 * (1 - distance / 135)})`;
+        ctx.lineWidth = 0.7;
+        ctx.beginPath();
+        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i < particlesArray.length; i++) {
+    particlesArray[i].update();
+    particlesArray[i].draw();
+  }
+  connectParticles();
+  requestAnimationFrame(animateParticles);
+}
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  initParticles();
+}
+
+window.addEventListener('resize', resizeCanvas);
+window.addEventListener('mousemove', (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+window.addEventListener('mouseleave', () => {
+  mouse.x = null;
+  mouse.y = null;
+});
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+initParticles();
+animateParticles();
+</script>
+
+</body>
+</html>

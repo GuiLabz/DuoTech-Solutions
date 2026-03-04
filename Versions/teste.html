@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="./logomarca.jpg">
+<title>GP Tech - Soluções Tecnológicas</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f9f9f9;
+  color:#333;
+}
+
+header{
+  background:#0f172a;
+  color:white;
+  padding:60px 20px;
+  text-align:center;
+}
+
+header h1{
+  font-size:32px;
+  margin-bottom:15px;
+}
+
+header p{
+  font-size:18px;
+  margin-bottom:25px;
+}
+
+.btn-whatsapp{
+  background:#25D366;
+  color:white;
+  padding:14px 25px;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+  display:inline-block;
+  transition:0.3s;
+}
+
+.btn-whatsapp:hover{
+  background:#1ebe5d;
+  transform:scale(1.05);
+}
+
+section{
+  padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:40px;
+  font-size:26px;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transition:0.3s;
+  cursor:pointer;
+  position:relative;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card h3{
+  margin-bottom:10px;
+  color:#0f172a;
+}
+
+.card p{
+  font-size:14px;
+  line-height:1.6;
+}
+
+.preco-base{
+  margin-top:10px;
+  font-weight:bold;
+  color:#16a34a;
+}
+
+.precos{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.5s ease, margin-top 0.3s ease;
+}
+
+.card.active .precos{
+  max-height:500px;
+  margin-top:15px;
+}
+
+.precos ul{
+  list-style:none;
+  font-size:14px;
+}
+
+.precos li{
+  padding:6px 0;
+  border-bottom:1px solid #eee;
+}
+
+.btn-servico{
+  margin-top:15px;
+  display:inline-block;
+  background:#0f172a;
+  color:white;
+  padding:10px 15px;
+  border-radius:6px;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s;
+}
+
+.btn-servico:hover{
+  background:#1e293b;
+  transform:scale(1.05);
+}
+
+.team{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  text-align:center;
+}
+
+.team-card{
+  background:white;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.diferenciais{
+  background:#0f172a;
+  color:white;
+  border-radius:12px;
+  padding:50px 20px;
+  text-align:center;
+}
+
+.diferenciais ul{
+  list-style:none;
+  margin-top:20px;
+}
+
+.diferenciais li{
+  margin:10px 0;
+  font-size:16px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:#111;
+  color:white;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Soluções Tecnológicas no Seu Condomínio</h1>
+<p>Atendimento realizado por Guilherme & Pablo – suporte técnico, Wi-Fi, segurança e instalações.</p>
+<a class="btn-whatsapp" href="https://wa.me/5511923651973?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20para%20serviços%20da%20GP%20Tech." target="_blank">
+Falar no WhatsApp
+</a>
+</header>
+
+<section>
+<h2>Nossos Serviços</h2>
+
+<div class="services">
+
+<!-- INFORMÁTICA -->
+<div class="card" onclick="toggleCard(this)">
+<h3>💻 Informática</h3>
+<p>Manutenção, upgrades e suporte técnico especializado.</p>
+<div class="preco-base">A partir de R$ 120,00</div>
+
+<div class="precos">
+<ul>
+<li>Formatação completa: R$ 180,00</li>
+<li>Upgrade SSD: R$ 150,00</li>
+<li>Montagem de PC Gamer: R$ 350,00</li>
+<li>Limpeza interna + pasta térmica: R$ 120,00</li>
+<li>Instalação de programas: R$ 90,00</li>
+</ul>
+<a class="btn-servico" target="_blank"
+href="https://wa.me/5511923651973?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20para%20serviços%20de%20Informática.%20Poderia%20me%20ajudar?">
+Quero esse serviço
+</a>
+</div>
+</div>
+
+<!-- WIFI -->
+<div class="card" onclick="toggleCard(this)">
+<h3>📶 Wi-Fi & Internet</h3>
+<p>Instalação e otimização de rede residencial.</p>
+<div class="preco-base">A partir de R$ 130,00</div>
+
+<div class="precos">
+<ul>
+<li>Configuração de roteador: R$ 130,00</li>
+<li>Instalação de repetidor: R$ 150,00</li>
+<li>Rede Mesh completa: R$ 450,00</li>
+<li>Passagem de cabo de rede: R$ 200,00</li>
+<li>Organização de rack: R$ 180,00</li>
+</ul>
+<a class="btn-servico" target="_blank"
+href="https://wa.me/5511923651973?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20serviços%20de%20Wi-Fi%20e%20Internet.">
+Quero esse serviço
+</a>
+</div>
+</div>
+
+<!-- SEGURANÇA -->
+<div class="card" onclick="toggleCard(this)">
+<h3>🎥 Segurança Eletrônica</h3>
+<p>Instalação de câmeras e dispositivos inteligentes.</p>
+<div class="preco-base">A partir de R$ 350,00</div>
+
+<div class="precos">
+<ul>
+<li>Instalação de câmera: R$ 350,00</li>
+<li>Kit 4 câmeras + DVR: R$ 1.800,00</li>
+<li>Fechadura digital: R$ 480,00</li>
+<li>Campainha inteligente: R$ 390,00</li>
+<li>Configuração de acesso remoto: R$ 250,00</li>
+</ul>
+<a class="btn-servico" target="_blank"
+href="https://wa.me/5511923651973?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20serviços%20de%20Segurança%20Eletrônica.">
+Quero esse serviço
+</a>
+</div>
+</div>
+
+<!-- INSTALAÇÕES -->
+<div class="card" onclick="toggleCard(this)">
+<h3>🔧 Instalações & Suportes</h3>
+<p>Instalações residenciais com acabamento profissional.</p>
+<div class="preco-base">A partir de R$ 100,00</div>
+
+<div class="precos">
+<ul>
+<li>Instalação de TV: R$ 200,00</li>
+<li>Suporte de monitor: R$ 130,00</li>
+<li>Organização de cabos: R$ 100,00</li>
+<li>Instalação de luminária smart: R$ 180,00</li>
+<li>Instalação de Alexa/Google Home: R$ 150,00</li>
+</ul>
+<a class="btn-servico" target="_blank"
+href="https://wa.me/5511923651973?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20serviços%20de%20Instalação.">
+Quero esse serviço
+</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="diferenciais">
+<h2>Por que escolher a GP Tech?</h2>
+<ul>
+<li>✔ Dois técnicos especializados</li>
+<li>✔ Atendimento rápido no condomínio</li>
+<li>✔ Garantia nos serviços</li>
+<li>✔ Profissionalismo e confiança</li>
+<li>✔ Suporte pós-serviço</li>
+</ul>
+<br>
+<a class="btn-whatsapp" href="https://wa.me/5511923651973?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20personalizado." target="_blank">
+Solicitar Orçamento
+</a>
+</div>
+</section>
+
+<footer>
+© 2026 GP Tech - Guilherme & Pablo Soluções Tecnológicas
+</footer>
+
+<script>
+function toggleCard(card){
+card.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
