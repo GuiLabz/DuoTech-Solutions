@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Studio Bella Carvalho | Lash Designer Premium</title>
+  <link rel="icon" href="logo.jpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --rosa-claro:   #fff0f7;
+      --rosa-suave:   #ffd4e9;
+      --rosa-medio:   #ff9ecf;
+      --rosa-principal:#ff69b4;
+      --rosa-escuro:  #d4418b;
+      --escuro:       #3d1e32;
+      --cinza-escuro: #5a3f4f;
+      --sombra-suave: 0 12px 32px rgba(255,105,180,0.12);
+      --glass:        rgba(255,255,255,0.65);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: linear-gradient(-45deg, #fff5fb, #ffe8f4, #ffd6ec, #ffeef8);
+      background-size: 400% 400%;
+      animation: gradientMove 18s ease infinite;
+      color: var(--escuro);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientMove {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Nav Glassmorphism */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--glass);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-bottom: 1px solid rgba(255,105,180,0.15);
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: center;
+      gap: 2.8rem;
+      z-index: 1000;
+      transition: all 0.4s;
+    }
+
+    nav.scrolled {
+      padding: 0.9rem 5%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    nav a {
+      color: var(--rosa-principal);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -6px;
+      left: 0;
+      background: var(--rosa-principal);
+      transition: width 0.35s ease;
+    }
+
+    nav a:hover::after { width: 100%; }
+    nav a:hover { color: var(--rosa-escuro); transform: translateY(-2px); }
+
+    /* Header */
+    header {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--rosa-suave) 0%, var(--rosa-medio) 100%);
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo {
+      width: 220px;
+      border-radius: 28px;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--sombra-suave);
+      transition: transform 0.6s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .logo:hover {
+      transform: scale(1.08) rotate(3deg);
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(4.2rem, 12vw, 7.5rem);
+      margin-bottom: 0.8rem;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+
+    header p {
+      font-size: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.95;
+    }
+
+    .btn {
+      background: white;
+      color: var(--rosa-principal);
+      padding: 1rem 2.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(255,105,180,0.3);
+      transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .btn:hover {
+      background: var(--rosa-principal);
+      color: white;
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 20px 40px rgba(255,105,180,0.35);
+    }
+
+    /* Section geral */
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8rem 2rem 6rem;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      text-align: center;
+      color: var(--rosa-principal);
+      margin-bottom: 3.5rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 3px;
+      background: var(--rosa-medio);
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /* Cards de serviços */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--sombra-suave);
+      transition: all 0.5s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-14px);
+      box-shadow: 0 24px 48px rgba(255,105,180,0.22);
+    }
+
+    .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.8rem;
+      text-align: center;
+    }
+
+    /* Antes e Depois - Slider funcional */
+    .antes-depois-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 4rem;
+      margin-top: 3rem;
+    }
+
+    .compare-container {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--sombra-suave);
+      aspect-ratio: 4/3;
+    }
+
+    .compare-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+    }
+
+    .after-img {
+      clip-path: inset(0 50% 0 0);
+    }
+
+    .slider-handle {
+      position: absolute;
+      width: 50px;
+      height: 100%;
+      background: white;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: ew-resize;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .slider-handle::before {
+      content: "↔";
+      font-size: 2rem;
+      color: var(--rosa-principal);
+      background: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    .label {
+      position: absolute;
+      top: 15px;
+      padding: 8px 16px;
+      border-radius: 30px;
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      z-index: 5;
+    }
+
+    .antes { left: 15px; background: rgba(0,0,0,0.6); }
+    .depois { right: 15px; background: var(--rosa-principal); }
+
+    /* Galeria Masonry-like */
+    .gallery {
+      column-count: 3;
+      column-gap: 1.5rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      transition: transform 0.6s ease;
+      break-inside: avoid;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.06);
+    }
+
+    /* Depoimentos */
+    .depoimento{
+      display:none;
+      animation: fade 0.6s ease;
+    }
+
+    .depoimento.active{
+      display:block;
+    }
+
+    .depoimento strong{
+      display:block;
+      margin-top:12px;
+      font-style:normal;
+      color:var(--rosa-principal);
+    }
+
+    @keyframes fade{
+      from{opacity:0; transform:translateY(10px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    .stars {
+      color: #ffd700;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Form */
+    .form {
+      max-width: 540px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    input, select {
+      padding: 1.1rem 1.4rem;
+      border-radius: 14px;
+      border: 1px solid #e0c4d8;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--rosa-principal);
+      box-shadow: 0 0 0 3px rgba(255,105,180,0.15);
+    }
+
+    /* WhatsApp FAB */
+    .whatsapp {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.2rem;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+      z-index: 999;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp:hover { transform: scale(1.15); }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: white;
+      color: var(--cinza-escuro);
+      font-size: 0.95rem;
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1.2s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ondas suaves */
+    .background-waves{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      z-index:-3;
+      overflow:hidden;
+    }
+
+    .wave{
+      position:absolute;
+      width:1200px;
+      height:1200px;
+      background:radial-gradient(circle, rgba(255,105,180,0.15), transparent 70%);
+      border-radius:50%;
+      animation:waveMove 20s linear infinite;
+    }
+
+    .wave:nth-child(1){ top:-300px; left:-300px; }
+    .wave:nth-child(2){ bottom:-400px; right:-200px; animation-duration:28s; }
+    .wave:nth-child(3){ top:30%; left:60%; animation-duration:35s; }
+
+    @keyframes waveMove{
+      0%   { transform:translateY(0) rotate(0deg); }
+      50%  { transform:translateY(-40px) rotate(180deg); }
+      100% { transform:translateY(0) rotate(360deg); }
+    }
+
+    /* Cuidados Premium */
+    .cuidados-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:2.5rem;
+      margin-top:3rem;
+    }
+
+    .cuidado-card{
+      position:relative;
+      padding:2.4rem 2rem;
+      border-radius:22px;
+      background:linear-gradient(145deg,#ffffff,#fff3f9);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,105,180,0.18);
+      box-shadow:0 15px 40px rgba(255,105,180,0.12);
+      text-align:center;
+      transition:all .45s cubic-bezier(.22,1,.36,1);
+      overflow:hidden;
+    }
+
+    .cuidado-card::before{
+      content:"";
+      position:absolute;
+      width:120px;
+      height:120px;
+      background:radial-gradient(circle,rgba(255,105,180,0.35),transparent 70%);
+      top:-40px;
+      right:-40px;
+      opacity:.6;
+      transition:.5s;
+    }
+
+    .cuidado-card:hover::before{
+      transform:scale(1.4);
+      opacity:.9;
+    }
+
+    .cuidado-card:hover{
+      transform:translateY(-12px) scale(1.03);
+      box-shadow:0 25px 60px rgba(255,105,180,0.25);
+    }
+
+    .cuidado-card i{
+      font-size:2.4rem;
+      color:var(--rosa-principal);
+      margin-bottom:1rem;
+      display:inline-block;
+      transition:.4s;
+    }
+
+    .cuidado-card:hover i{
+      transform:scale(1.2) rotate(6deg);
+    }
+
+    .cuidado-card h3{
+      font-size:1.25rem;
+      margin-bottom:.6rem;
+      color:var(--rosa-principal);
+    }
+
+    .cuidado-card p{
+      font-size:.95rem;
+      color:var(--cinza-escuro);
+      line-height:1.5;
+    }
+
+    .cuidado-card:nth-child(odd){ transform:translateY(6px); }
+    .cuidado-card:nth-child(even){ transform:translateY(-6px); }
+
+    .floating-bg{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      z-index:-1;
+      overflow:hidden;
+    }
+
+    .floating-bg span{
+      position:absolute;
+      display:block;
+      width:10px;
+      height:10px;
+      background:rgba(255,105,180,0.25);
+      border-radius:50%;
+      animation:float 18s linear infinite;
+    }
+
+    @keyframes float{
+      0%   { transform:translateY(110vh) scale(0.5); opacity:0; }
+      10%  { opacity:.6; }
+      90%  { opacity:.6; }
+      100% { transform:translateY(-10vh) scale(1.1); opacity:0; }
+    }
+
+    .cursor-glow{
+      position:fixed;
+      width:220px;
+      height:220px;
+      background:radial-gradient(circle, rgba(255,105,180,0.25) 0%, rgba(255,105,180,0.08) 40%, transparent 70%);
+      pointer-events:none;
+      transform:translate(-50%,-50%);
+      z-index:-1;
+      filter:blur(35px);
+      transition:transform 0.05s linear;
+    }
+
+    .glitter{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      z-index:-2;
+    }
+
+    .glitter span{
+      position:absolute;
+      width:4px;
+      height:4px;
+      background:white;
+      border-radius:50%;
+      opacity:.6;
+      animation:glitterMove 8s linear infinite;
+    }
+
+    @keyframes glitterMove{
+      0%   { transform:translateY(0px) scale(.5); opacity:0; }
+      50%  { opacity:.8; }
+      100% { transform:translateY(-200px) scale(1.2); opacity:0; }
+    }
+
+    @media (max-width: 768px) {
+      nav { gap: 1.5rem; font-size: 0.95rem; padding: 1rem 3%; }
+      .gallery { column-count: 2; }
+      h1 { font-size: 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="background-waves">
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+</div>
+
+<div class="glitter"></div>
+<div class="cursor-glow"></div>
+<div class="floating-bg"></div>
+
+<header>
+  <img src="logo.jpeg" class="logo" alt="Studio Bella Carvalho" loading="lazy">
+  <h1>Studio Bella Carvalho</h1>
+  <p>Lash Designer Premium • Atendimento exclusivo a domicílio</p>
+  <a href="#agendar" class="btn">Quero meu olhar transformado</a>
+</header>
+
+<section id="resultados" class="reveal">
+  <h2>Transformações reais</h2>
+
+  <div class="antes-depois-grid">
+    <!-- Spa Labial -->
+    <div>
+      <h3 style="text-align:center; color:var(--rosa-principal); margin-bottom:1.2rem;">Spa Labial</h3>
+      <div class="compare-container" id="compare1">
+        <img src="spa1.png" class="compare-image" alt="Antes">
+        <img src="spa2.jpg" class="compare-image after-img" alt="Depois">
+        <div class="slider-handle" id="handle1"></div>
+        <span class="label antes">Antes</span>
+        <span class="label depois">Depois</span>
+      </div>
+    </div>
+
+    <!-- Sobrancelhas -->
+    <div>
+      <h3 style="text-align:center; color:var(--rosa-principal); margin-bottom:1.2rem;">Design de Sobrancelhas</h3>
+      <div class="compare-container" id="compare2">
+        <img src="sobrancelhas-antes.jpg" class="compare-image" alt="Antes">
+        <img src="sobrancelhas-depois.jpg" class="compare-image after-img" alt="Depois">
+        <div class="slider-handle" id="handle2"></div>
+        <span class="label antes">Antes</span>
+        <span class="label depois">Depois</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clientes" class="reveal">
+  <h2>Galeria de olhares</h2>
+  <div class="gallery">
+    <img src="resultado-4.png" alt="Volume russo" loading="lazy">
+    <img src="resultado-6.png" alt="Estilo gatinho" loading="lazy">
+    <img src="resultado-1.png" alt="Cílios + sobrancelhas" loading="lazy">
+    <img src="resultado-2.jpeg" alt="Detalhe perfeito" loading="lazy">
+    <img src="resultado-3.jpeg" alt="Olhar poderoso" loading="lazy">
+    <img src="resultado-5.jpeg" alt="Finalização impecável" loading="lazy">
+    <img src="resultado-7.jpeg" alt="Cílios impecável" loading="lazy">
+    <img src="resultado-9.jpeg" alt="Volume definidos" loading="lazy">
+    <img src="resultado-8.jpeg" alt="Detalhe impecável" loading="lazy">
+  </div>
+</section>
+
+<section id="depoimentos" class="reveal">
+  <h2>O que elas dizem</h2>
+
+  <div class="carousel" id="carousel">
+    <div class="depoimento active">
+      <div class="stars">★★★★★</div>
+      <p>“Meu olhar nunca esteve tão incrível! Cuidado, carinho e resultado surreal. Recomendo de olhos fechados!”</p>
+      <strong>— Juliana M.</strong>
+    </div>
+
+    <div class="depoimento">
+      <div class="stars">★★★★★</div>
+      <p>“A Bella tem uma mão incrível! Me senti super confortável e o resultado ficou perfeito.”</p>
+      <strong>— Amanda R.</strong>
+    </div>
+
+    <div class="depoimento">
+      <div class="stars">★★★★★</div>
+      <p>“Simplesmente apaixonada! Meu olhar ficou muito mais marcante.”</p>
+      <strong>— Fernanda L.</strong>
+    </div>
+
+    <div class="depoimento">
+      <div class="stars">★★★★★</div>
+      <p>“Atendimento impecável e resultado maravilhoso. Já virei cliente fiel!”</p>
+      <strong>— Camila S.</strong>
+    </div>
+
+    <div class="depoimento">
+      <div class="stars">★★★★★</div>
+      <p>“Nunca tinha feito extensão de cílios e fiquei apaixonada pelo resultado.”</p>
+      <strong>— Mariana P.</strong>
+    </div>
+  </div>
+</section>
+
+<section id="cuidados" class="reveal">
+  <h2>Cuidados com seu alongamento</h2>
+
+  <div class="cuidados-grid">
+    <div class="cuidado-card">
+      <i class="fa-solid fa-clock"></i>
+      <h3>Evite água nas primeiras 24h</h3>
+      <p>Nas primeiras 24 horas após o procedimento, evite molhar os cílios para garantir melhor fixação da cola.</p>
+    </div>
+
+    <div class="cuidado-card">
+      <i class="fa-solid fa-hand"></i>
+      <h3>Não esfregue os olhos</h3>
+      <p>Evite esfregar ou puxar os cílios, isso pode danificar o alongamento e reduzir a durabilidade.</p>
+    </div>
+
+    <div class="cuidado-card">
+      <i class="fa-solid fa-droplet"></i>
+      <h3>Evite produtos oleosos</h3>
+      <p>Demaquilantes ou cremes com óleo podem soltar os fios mais rápido.</p>
+    </div>
+
+    <div class="cuidado-card">
+      <i class="fa-solid fa-wind"></i>
+      <h3>Penteie seus cílios</h3>
+      <p>Use uma escovinha própria para manter os fios alinhados e sempre bonitos.</p>
+    </div>
+
+    <div class="cuidado-card">
+      <i class="fa-solid fa-calendar-days"></i>
+      <h3>Faça manutenção</h3>
+      <p>O ideal é realizar manutenção entre 15 e 20 dias para manter o efeito sempre perfeito.</p>
+    </div>
+
+    <div class="cuidado-card">
+      <i class="fa-solid fa-face-smile"></i>
+      <h3>Durma com cuidado</h3>
+      <p>Evite dormir pressionando o rosto no travesseiro para preservar os fios.</p>
+    </div>
+  </div>
+</section>
+
+<section id="agendar" class="reveal">
+  <h2>Reserve seu momento</h2>
+
+  <form class="form" id="formAgendamento">
+    <input placeholder="Seu nome completo" required>
+    <input placeholder="WhatsApp (com DDD)" required pattern="\d{10,11}">
+    <select required>
+      <option value="" disabled selected>Qual serviço deseja?</option>
+      <option>Extensão de cílios</option>
+      <option>Design + henna de sobrancelhas</option>
+      <option>Spa labial</option>
+      <option>Combo cílios + sobrancelhas</option>
+    </select>
+    <input type="date" id="data" required>
+    <select id="hora" required>
+      <option value="" disabled selected>Horário preferencial</option>
+      <option>09:00</option><option>10:00</option><option>11:00</option>
+      <option>13:00</option><option>14:00</option><option>15:00</option>
+      <option>16:00</option><option>17:00</option><option>18:00</option>
+    </select>
+    <button type="submit" class="btn">Enviar e Agendar via WhatsApp</button>
+  </form>
+</section>
+
+<a href="https://wa.me/5511948576805" class="whatsapp" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<footer>
+  Studio Bella Carvalho © 2026 • Feito com carinho para realçar sua beleza
+</footer>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("active");
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  window.addEventListener("scroll", () => {
+    document.querySelector("nav")?.classList.toggle("scrolled", window.scrollY > 100);
+  });
+
+  // Bloqueio de datas/horários passados
+  const dataEl = document.getElementById("data");
+  const hoje = new Date().toISOString().split("T")[0];
+  dataEl.min = hoje;
+
+  dataEl.addEventListener("change", () => {
+    const agora = new Date();
+    const horaAtual = agora.getHours();
+    const hojeSelecionado = dataEl.value === hoje;
+
+    document.querySelectorAll("#hora option").forEach(opt => {
+      if (!opt.value) return;
+      const h = parseInt(opt.value.split(":")[0]);
+      opt.disabled = hojeSelecionado && h <= horaAtual;
+    });
+  });
+
+  // Before/After Sliders
+  function initSlider(containerId, handleId) {
+    const container = document.getElementById(containerId);
+    const handle = document.getElementById(handleId);
+    const after = container.querySelector('.after-img');
+    let isDragging = false;
+
+    const moveSlider = (e) => {
+      if (!isDragging) return;
+      const rect = container.getBoundingClientRect();
+      let x = (e.clientX || e.touches[0].clientX) - rect.left;
+      x = Math.max(0, Math.min(rect.width, x));
+      const percent = (x / rect.width) * 100;
+      after.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+      handle.style.left = percent + "%";
+    };
+
+    handle.addEventListener("mousedown", () => isDragging = true);
+    handle.addEventListener("touchstart", () => isDragging = true);
+    document.addEventListener("mouseup", () => isDragging = false);
+    document.addEventListener("touchend", () => isDragging = false);
+    document.addEventListener("mousemove", moveSlider);
+    document.addEventListener("touchmove", moveSlider);
+
+    after.style.clipPath = "inset(0 50% 0 0)";
+    handle.style.left = "50%";
+  }
+
+  initSlider("compare1", "handle1");
+  initSlider("compare2", "handle2");
+
+  // Form → WhatsApp
+  document.getElementById("formAgendamento").addEventListener("submit", e => {
+    e.preventDefault();
+    const [nome, whatsapp, servico, data, hora] = e.target;
+
+    const msg = `Oi Bella! 💕\n\nMe chamo *${nome.value}* e adoraria agendar com você.\n\n✨ Serviço: ${servico.value}\n📅 Data: ${data.value}\n⏰ Horário: ${hora.value}\n\nMeu WhatsApp: ${whatsapp.value}\n\nAguardo confirmação com carinho! 🌸`;
+
+    window.open(`https://wa.me/5511948576805?text=${encodeURIComponent(msg)}`);
+  });
+
+  // Carrossel depoimentos
+  const depoimentos = document.querySelectorAll(".depoimento");
+  let depoimentoAtual = 0;
+
+  setInterval(() => {
+    depoimentos[depoimentoAtual].classList.remove("active");
+    depoimentoAtual++;
+    if (depoimentoAtual >= depoimentos.length) depoimentoAtual = 0;
+    depoimentos[depoimentoAtual].classList.add("active");
+  }, 4000);
+
+  // Partículas delicadas no fundo
+  const bg = document.querySelector(".floating-bg");
+  for(let i=0; i<20; i++){
+    const span = document.createElement("span");
+    span.style.left = Math.random()*100+"vw";
+    span.style.animationDuration = (14 + Math.random()*10) + "s";
+    span.style.width = span.style.height = (6 + Math.random()*8) + "px";
+    bg.appendChild(span);
+  }
+
+  // brilho seguindo o mouse
+  const glow = document.querySelector(".cursor-glow");
+  document.addEventListener("mousemove", e=>{
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+  });
+
+  // glitter no fundo
+  const glitter = document.querySelector(".glitter");
+  for(let i=0; i<35; i++){
+    const star = document.createElement("span");
+    star.style.left = Math.random()*100+"vw";
+    star.style.top = Math.random()*100+"vh";
+    star.style.animationDuration = (4 + Math.random()*6)+"s";
+    glitter.appendChild(star);
+  }
+
+  // efeito parallax apple
+  const sections = document.querySelectorAll("section");
+  const observer2 = new IntersectionObserver(entries => {
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+      }
+    });
+  },{threshold:0.2});
+
+  sections.forEach(section=>{
+    section.classList.add("parallax");
+    observer2.observe(section);
+  });
+</script>
+
+</body>
+</html>
