@@ -1,0 +1,26 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\guilh\\Desktop\\gp-tech\\up-baar"
+publishOrigin = "default"
+base = "C:\\Users\\guilh\\Desktop\\gp-tech\\up-baar"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
